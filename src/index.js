@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const mcqRoutes = require('./Routes/McqRoutes');
+const serverless = require('serverless-http');
 
 const app = express();
 app.use(cors());
@@ -20,9 +21,11 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-app.use('/.netlify/functions/api', mcqRoutes);
+app.use('/api', mcqRoutes);
 
 const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+

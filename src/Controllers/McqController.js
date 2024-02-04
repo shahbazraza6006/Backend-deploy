@@ -9,6 +9,9 @@ const getMCQs = (req, res) => {
     
     res.json(questionsToServe);
 };
+const sayHello = (req, res) => {
+    res.json({ message: 'Hello from the dummy route!' });
+};
 
 const submitAnswers = (req, res) => {
     const userAnswers = req.body; // Assuming this is an array of { questionId, answer } objects
@@ -42,5 +45,6 @@ const submitAnswers = (req, res) => {
 
 module.exports = {
     getMCQs,
-    submitAnswers
+    submitAnswers,
+    sayHello
 };
