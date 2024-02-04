@@ -20,7 +20,7 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-app.use('/', mcqRoutes);
+app.use('/.netlify/functions/api', mcqRoutes);
 
 const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => {
